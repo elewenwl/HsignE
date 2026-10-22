@@ -49,8 +49,8 @@ struct AboutNyaView: View {
             .listRowBackground(EmptyView())
             
             NBSection(.localized("Credits")) {
-                // Заменили Nyasami на elevenvl и обновили ссылку
-                _credit(name: "elevenvl", desc: "Developer", github: "hybr1der")
+                
+                _credit(name: "elevenvl", desc: "Developer", github: "elewenwl")
             }
             
             NBSection("Special thanks!") {
@@ -86,7 +86,7 @@ struct AboutNyaView: View {
     
     private func _showPatchNotes() {
         UIAlertController.showAlertWithOk(
-            title: .localized("From elevenvl, Version \(Bundle.main.version)"), // Заменили имя в заголовке
+            title: .localized("From elevenvl, Version \(Bundle.main.version)"), 
             message: .localized("This version introduces:\n\n- Custom branding for H-sign\n- Full interface translation to Russian\n- Updated author info and social links\n- Fixed UI bugs\n- Localization updates"),
             isCancel: true,
             thankYou: true
