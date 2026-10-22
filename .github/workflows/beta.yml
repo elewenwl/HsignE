@@ -48,7 +48,7 @@ jobs:
             CODE_SIGNING_ALLOWED=NO \
             -derivedDataPath build
 
-      - name: Package IPA (Rename App)
+      - name: Package IPA
         if: always()
         run: |
           mkdir -p build/Payload
@@ -56,7 +56,9 @@ jobs:
           
           cd build/Payload
           for f in *.app; do
-            mv "$f" "H-sign.app"
+            if [ "$f" != "H-sign.app" ]; then
+              mv "$f" "H-sign.app"
+            fi
           done
           
           cd H-sign.app
