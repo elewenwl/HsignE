@@ -55,23 +55,16 @@ jobs:
           cp -r build/Build/Products/Release-iphoneos/*.app build/Payload/
           
           cd build/Payload
+          
           for f in *.app; do
-            if [ "$f" != "H-sign.app" ]; then
-              mv "$f" "H-sign.app"
-            fi
+            mv "$f" "H-sign.app"
+            break
           done
           
-          cd H-sign.app
-          if [ -f "Ksign" ]; then
-            mv "Ksign" "H-sign"
-          fi
-          cd ../..
+          /usr/libexec/PlistBuddy -c "Set :CFBundleDisplayName H-sign" H-sign.app/Info.plist || true
+          /usr/libexec/PlistBuddy -c "Set :CFBundleName H-sign" H-sign.app/Info.plist || true
           
-          /usr/libexec/PlistBuddy -c "Set :CFBundleDisplayName H-sign" build/Payload/H-sign.app/Info.plist || true
-          /usr/libexec/PlistBuddy -c "Set :CFBundleName H-sign" build/Payload/H-sign.app/Info.plist || true
-          /usr/libexec/PlistBuddy -c "Set :CFBundleExecutable H-sign" build/Payload/H-sign.app/Info.plist || true
-          
-          cd build && zip -r H-sign-unsigned.ipa Payload
+          zip -r ../H-sign-unsigned.ipa Payload
 
       - name: Upload unsigned IPA
         if: always()
