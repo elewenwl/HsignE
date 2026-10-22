@@ -54,17 +54,12 @@ jobs:
           mkdir -p build/Payload
           cp -r build/Build/Products/Release-iphoneos/*.app build/Payload/
           
-          cd build/Payload
+          cd build
           
-          for f in *.app; do
-            mv "$f" "H-sign.app"
-            break
-          done
+          /usr/libexec/PlistBuddy -c "Set :CFBundleDisplayName H-sign" Payload/*.app/Info.plist || true
+          /usr/libexec/PlistBuddy -c "Set :CFBundleName H-sign" Payload/*.app/Info.plist || true
           
-          /usr/libexec/PlistBuddy -c "Set :CFBundleDisplayName H-sign" H-sign.app/Info.plist || true
-          /usr/libexec/PlistBuddy -c "Set :CFBundleName H-sign" H-sign.app/Info.plist || true
-          
-          zip -r ../H-sign-unsigned.ipa Payload
+          zip -r H-sign-unsigned.ipa Payload
 
       - name: Upload unsigned IPA
         if: always()
