@@ -31,29 +31,29 @@
 			containerPortal = 3379C1B12DA869A1004372DA /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 3379C1B82DA869A1004372DA;
-			remoteInfo = Feather;
+			remoteInfo = H-sign;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		336D43972DB7454A00206400 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS18.2.sdk/System/Library/Frameworks/MobileCoreServices.framework; sourceTree = DEVELOPER_DIR; };
-		3379C1B92DA869A1004372DA /* Ksign.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Ksign.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		AABA5D192DB3C87800BFCD2C /* KsignTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KsignTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		3379C1B92DA869A1004372DA /* H-sign.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "H-sign.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		AABA5D192DB3C87800BFCD2C /* H-signTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = H-signTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		3371F6492DA92A1800281AC6 /* Exceptions for "Ksign" folder in "Ksign" target */ = {
+		3371F6492DA92A1800281AC6 /* Exceptions for "Ksign" folder in "H-sign" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				Resources/ellekit.deb,
 				Resources/Info.plist,
 			);
-			target = 3379C1B82DA869A1004372DA /* Ksign */;
+			target = 3379C1B82DA869A1004372DA /* H-sign */;
 		};
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet section */
-		33CF134C2DB5B9BC0021D4C5 /* Exceptions for "Ksign" folder in "Copy Bundle Resources" phase from "Ksign" target */ = {
+		33CF134C2DB5B9BC0021D4C5 /* Exceptions for "Ksign" folder in "Copy Bundle Resources" phase from "H-sign" target */ = {
 			isa = PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet;
 			buildPhase = 3379C1B72DA869A1004372DA /* Resources */;
 			membershipExceptions = (
@@ -66,8 +66,8 @@
 		3379C1BB2DA869A1004372DA /* Ksign */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
-				3371F6492DA92A1800281AC6 /* Exceptions for "Ksign" folder in "Ksign" target */,
-				33CF134C2DB5B9BC0021D4C5 /* Exceptions for "Ksign" folder in "Copy Bundle Resources" phase from "Ksign" target */,
+				3371F6492DA92A1800281AC6 /* Exceptions for "Ksign" folder in "H-sign" target */,
+				33CF134C2DB5B9BC0021D4C5 /* Exceptions for "Ksign" folder in "Copy Bundle Resources" phase from "H-sign" target */,
 			);
 			path = Ksign;
 			sourceTree = "<group>";
@@ -128,8 +128,8 @@
 		3379C1BA2DA869A1004372DA /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				3379C1B92DA869A1004372DA /* Ksign.app */,
-				AABA5D192DB3C87800BFCD2C /* KsignTests.xctest */,
+				3379C1B92DA869A1004372DA /* H-sign.app */,
+				AABA5D192DB3C87800BFCD2C /* H-signTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -137,9 +137,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		3379C1B82DA869A1004372DA /* Ksign */ = {
+		3379C1B82DA869A1004372DA /* H-sign */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 3379C1CD2DA869A3004372DA /* Build configuration list for PBXNativeTarget "Ksign" */;
+			buildConfigurationList = 3379C1CD2DA869A3004372DA /* Build configuration list for PBXNativeTarget "H-sign" */;
 			buildPhases = (
 				3379C1B52DA869A1004372DA /* Sources */,
 				3379C1B62DA869A1004372DA /* Frameworks */,
@@ -154,7 +154,7 @@
 			fileSystemSynchronizedGroups = (
 				3379C1BB2DA869A1004372DA /* Ksign */,
 			);
-			name = Ksign;
+			name = "H-sign";
 			packageProductDependencies = (
 				3371F7312DA9ECDD00281AC6 /* Zip */,
 				33CF13382DB5ACFB0021D4C5 /* SWCompression */,
@@ -173,12 +173,12 @@
 				C42CC1AE2F4370F20064A4A2 /* IDeviceSwift */,
 			);
 			productName = Feather;
-			productReference = 3379C1B92DA869A1004372DA /* Ksign.app */;
+			productReference = 3379C1B92DA869A1004372DA /* H-sign.app */;
 			productType = "com.apple.product-type.application";
 		};
-		AABA5D182DB3C87800BFCD2C /* KsignTests */ = {
+		AABA5D182DB3C87800BFCD2C /* H-signTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = AABA5D1F2DB3C87800BFCD2C /* Build configuration list for PBXNativeTarget "KsignTests" */;
+			buildConfigurationList = AABA5D1F2DB3C87800BFCD2C /* Build configuration list for PBXNativeTarget "H-signTests" */;
 			buildPhases = (
 				AABA5D152DB3C87800BFCD2C /* Sources */,
 				AABA5D162DB3C87800BFCD2C /* Frameworks */,
@@ -189,11 +189,11 @@
 			dependencies = (
 				AABA5D1E2DB3C87800BFCD2C /* PBXTargetDependency */,
 			);
-			name = KsignTests;
+			name = H-signTests;
 			packageProductDependencies = (
 			);
 			productName = FeatherTests;
-			productReference = AABA5D192DB3C87800BFCD2C /* KsignTests.xctest */;
+			productReference = AABA5D192DB3C87800BFCD2C /* H-signTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -249,8 +249,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				3379C1B82DA869A1004372DA /* Ksign */,
-				AABA5D182DB3C87800BFCD2C /* KsignTests */,
+				3379C1B82DA869A1004372DA /* H-sign */,
+				AABA5D182DB3C87800BFCD2C /* H-signTests */,
 			);
 		};
 /* End PBXProject section */
@@ -313,7 +313,7 @@
 		};
 		AABA5D1E2DB3C87800BFCD2C /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 3379C1B82DA869A1004372DA /* Ksign */;
+			target = 3379C1B82DA869A1004372DA /* H-sign */;
 			targetProxy = AABA5D1D2DB3C87800BFCD2C /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -468,9 +468,9 @@
 				);
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Ksign/Resources/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = Ksign;
+				INFOPLIST_KEY_CFBundleDisplayName = "H-sign";
 				INFOPLIST_KEY_LSSupportsOpeningDocumentsInPlace = NO;
-				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright (c) 2025 Nagata Asami";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright (c) 2026 elevenvl";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -534,9 +534,9 @@
 				GCC_PREPROCESSOR_DEFINITIONS = "SERVER=1";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Ksign/Resources/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = Ksign;
+				INFOPLIST_KEY_CFBundleDisplayName = "H-sign";
 				INFOPLIST_KEY_LSSupportsOpeningDocumentsInPlace = NO;
-				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright (c) 2025 Nagata Asami";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright (c) 2026 elevenvl";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -593,7 +593,7 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Ksign.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Ksign";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/H-sign.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/H-sign";
 			};
 			name = Debug;
 		};
@@ -616,7 +616,7 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Ksign.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Ksign";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/H-sign.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/H-sign";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -633,7 +633,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		3379C1CD2DA869A3004372DA /* Build configuration list for PBXNativeTarget "Ksign" */ = {
+		3379C1CD2DA869A3004372DA /* Build configuration list for PBXNativeTarget "H-sign" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				3379C1CE2DA869A3004372DA /* Debug */,
@@ -642,7 +642,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		AABA5D1F2DB3C87800BFCD2C /* Build configuration list for PBXNativeTarget "KsignTests" */ = {
+		AABA5D1F2DB3C87800BFCD2C /* Build configuration list for PBXNativeTarget "H-signTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				AABA5D202DB3C87800BFCD2C /* Debug */,
