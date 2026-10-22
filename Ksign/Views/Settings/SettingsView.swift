@@ -8,7 +8,6 @@
 import SwiftUI
 import NimbleViews
 
-// MARK: - View
 struct SettingsView: View {
     @AppStorage("feather.selectedCert") private var _storedSelectedCert: Int = 0
     @FetchRequest(
@@ -18,97 +17,131 @@ struct SettingsView: View {
     ) private var _certificates: FetchedResults<CertificatePair>
     
     private var selectedCertificate: CertificatePair? {
-        guard
-            _storedSelectedCert >= 0,
-            _storedSelectedCert < _certificates.count
-        else {
+        guard _storedSelectedCert >= 0, _storedSelectedCert < _certificates.count else {
             return nil
         }
         return _certificates[_storedSelectedCert]
     }
     
-    // my link's
-    private let _githubUrl = "https://github.com/hybr1der"
-    private let _telegramUrl = "https://t.me/to_el_day"
+    private let _githubUrl = "https://github.com/elewenwl"
+    private let _telegramDevUrl = "https://t.me/to_el_day"
+    private let _telegramChannelUrl = "https://t.me/Hsign_com"
+    private let _websiteUrl = "https://sfkumuxib.github.io/elevenvl-tools/"
     
-    // MARK: Body
     var body: some View {
-        NBNavigationView(.localized("Settings")) {
+        NBNavigationView(.localized("Настройки")) {
             Form {
                 _feedback()
                 
                 Section {
                     NavigationLink(destination: AppIconView()) {
-                        Label(.localized("App Icon"), systemImage: "app.badge")
+                        Label(.localized("Иконка приложения"), systemImage: "app.badge")
                     }
                     NavigationLink(destination: AppearanceView()) {
-                        Label(.localized("Appearance"), systemImage: "paintbrush")
+                        Label(.localized("Внешний вид"), systemImage: "paintbrush")
                     }
                 }
                 
-                NBSection(.localized("Certificates")) {
-                    
+                NBSection(.localized("Сертификаты")) {
                     if let cert = selectedCertificate {
                         CertificatesCellView(cert: cert)
                     } else {
-                        Text(.localized("No Certificate"))
+                        Text(.localized("Нет сертификата"))
                             .font(.footnote)
                             .foregroundColor(.disabled())
                     }
                     NavigationLink(destination: CertificatesView()) {
-                        Label(.localized("Certificates"), systemImage: "signature")
+                        Label(.localized("Сертификаты"), systemImage: "signature")
                     }
-                 
                 } footer: {
-                    Text(.localized("Add and manage certificates used for signing applications."))
+                    Text(.localized("Добавляйте сертификаты и управляйте ими для подписи приложений."))
                 }
                 
-                NBSection(.localized("Features")) {
+                NBSection(.localized("Функции")) {
                     NavigationLink(destination: LogsView(manager: LogsManager.shared)) {
-                        Label(.localized("Logs"), systemImage: "apple.terminal")
+                        Label(.localized("Логи"), systemImage: "apple.terminal")
                     }
                     NavigationLink(destination: AppFeaturesView()) {
-                        Label(.localized("App Features"), systemImage: "sparkles")
+                        Label(.localized("Функции приложения"), systemImage: "sparkles")
                     }
                     NavigationLink(destination: ConfigurationView()) {
-                        Label(.localized("Signing Options"), systemImage: "gear")
+                        Label(.localized("Параметры подписи"), systemImage: "gear")
                     }
                     NavigationLink(destination: ArchiveView()) {
-                        Label(.localized("Archive & Extraction"), systemImage: "archivebox")
+                        Label(.localized("Архивация"), systemImage: "archivebox")
                     }
                     NavigationLink(destination: InstallationView()) {
-                        Label(.localized("Installation"), systemImage: "server.rack")
+                        Label(.localized("Установка"), systemImage: "server.rack")
                     }
                 }
                 
                 _directories()
                 
-                Section {
-                    NavigationLink(destination: ResetView()) {
-                        Label(.localized("Reset"), systemImage: "trash")
+                NBSection(.localized("Полезные ссылки")) {
+                    Button {
+                        if let url = URL(string: "https://altstore.io") {
+                            UIApplication.shared.open(url)
+                        }
+                    } label: {
+                        Label("Скачать AltStore", systemImage: "arrow.down.circle")
+                    }
+                    
+                    Button {
+                        if let url = URL(string: "https://usescarlet.com") {
+                            UIApplication.shared.open(url)
+                        }
+                    } label: {
+                        Label("Скачать Scarlet", systemImage: "flame")
+                    }
+                    
+                    Button {
+                        if let url = URL(string: "https://esign.yyyue.xyz") {
+                            UIApplication.shared.open(url)
+                        }
+                    } label: {
+                        Label("Скачать ESign", systemImage: "signature")
+                    }
+                    
+                    Button {
+                        if let url = URL(string: _websiteUrl) {
+                            UIApplication.shared.open(url)
+                        }
+                    } label: {
+                        Label("Сайт H-sign", systemImage: "safari")
                     }
                 } footer: {
-                    Text("Reset the applications sources, certificates, apps, and general contents.")
+                    Text(.localized("Официальные сайты для скачивания инструментов подписи и нашего сайта."))
+                }
+                
+                Section {
+                    NavigationLink(destination: ResetView()) {
+                        Label(.localized("Сброс"), systemImage: "trash")
+                    }
+                } footer: {
+                    Text("Сбросить настройки источников, сертификатов, приложений и содержимого.")
                 }
             }
         }
     }
 }
 
-// MARK: - View extension
 extension SettingsView {
     @ViewBuilder
     private func _feedback() -> some View {
         Section {
             NavigationLink(destination: AboutNyaView()) {
-                Label(.localized("About H-sign"), systemImage: "info.circle")
+                Label(.localized("О приложении"), systemImage: "info.circle")
             }
             
-            Button(.localized("Telegram Developer"), systemImage: "paperplane.circle") {
-                UIApplication.open(_telegramUrl)
+            Button(.localized("Telegram Канал"), systemImage: "megaphone") {
+                UIApplication.open(_telegramChannelUrl)
             }
             
-            Button(.localized("GitHub Repository"), systemImage: "safari") {
+            Button(.localized("Разработчик в Telegram"), systemImage: "paperplane.circle") {
+                UIApplication.open(_telegramDevUrl)
+            }
+            
+            Button(.localized("Репозиторий на GitHub"), systemImage: "safari") {
                 UIApplication.open(_githubUrl)
             }
         }
@@ -116,15 +149,15 @@ extension SettingsView {
     
     @ViewBuilder
     private func _directories() -> some View {
-        NBSection(.localized("Misc")) {
-            Button(.localized("Open Documents"), systemImage: "folder") {
+        NBSection(.localized("Разное")) {
+            Button(.localized("Открыть документы"), systemImage: "folder") {
                 UIApplication.open(URL.documentsDirectory.toSharedDocumentsURL()!)
             }
-            Button(.localized("Open Archives"), systemImage: "folder") {
+            Button(.localized("Открыть архивы"), systemImage: "folder") {
                 UIApplication.open(FileManager.default.archives.toSharedDocumentsURL()!)
             }
         } footer: {
-            Text(.localized("All H-sign files except certificates are contained in the documents directory, here are some quick links to these."))
+            Text(.localized("Все файлы H-sign, кроме сертификатов, находятся в папке документов."))
         }
     }
 }
