@@ -1,0 +1,71 @@
+name: Beta Build
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: macos-15
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Select Xcode Version
+        run: sudo xcode-select -s /Applications/Xcode_16.app
+
+      - name: Clean Package Cache
+        run: |
+          rm -rf ~/Library/Caches/org.swift.swiftpm
+          rm -rf ~/Library/Developer/Xcode/DerivedData
+          rm -rf ~/.swiftpm
+
+      - name: Resolve Package Dependencies
+        run: |
+          xcodebuild -resolvePackageDependencies \
+            -project Ksign.xcodeproj \
+            -scheme Ksign \
+            -disablePackageRepositoryCache
+
+      - name: Build
+        run: |
+          xcodebuild clean build \
+            -project Ksign.xcodeproj \
+            -scheme Ksign \
+            -configuration Release \
+            -sdk iphoneos \
+            CODE_SIGN_IDENTITY="" \
+            CODE_SIGNING_REQUIRED=NO \
+            CODE_SIGNING_ALLOWED=NO \
+            -derivedDataPath build
+
+      - name: Package IPA
+        if: always()
+        run: |
+          mkdir -p build/Payload
+          cp -r build/Build/Products/Release-iphoneos/*.app build/Payload/
+          cd build && zip -r H-sign-unsigned.ipa Payload
+
+      - name: Upload unsigned IPA
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: H-sign-unsigned-ipa
+          path: build/H-sign-unsigned.ipa
+
+      - name: Update Beta Release
+        if: always()
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: beta
+          name: H-sign Beta
+          draft: true
+          prerelease: true
+          files: build/H-sign-unsigned.ipa
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
