@@ -25,9 +25,6 @@ jobs:
           fi
           xcodebuild -version
 
-      - name: Download iOS Platform
-        run: xcodebuild -downloadPlatform iOS
-
       - name: Disable Plugin Validation
         run: |
           defaults write com.apple.dt.Xcode IDESkipPackagePluginFingerprintValidatation -bool YES
